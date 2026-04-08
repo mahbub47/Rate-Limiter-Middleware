@@ -18,7 +18,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     )
 );
 
-builder.Services.AddScoped<IRateLimiterService, FixedWindowRateLimiterService>();
+builder.Services.AddScoped<IRateLimiterService, SlidingWindowRateLimiterService>();
 
 builder.Services.Configure<RateLimiterConfig>(
     builder.Configuration.GetSection("RateLimiter")
